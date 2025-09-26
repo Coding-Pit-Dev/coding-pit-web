@@ -1,0 +1,207 @@
+---
+/**
+ * PricingPlans Component
+ * @description Muestra los diferentes planes de mentoría y destaca el plan anual
+ */
+interface Plan {
+  name: string
+  description: string
+  price: string
+  savings?: string
+  highlight?: boolean
+  originalPrice?: string
+}
+
+const plans: Plan[] = [
+  {
+    name: 'Mensual',
+    description: '1 mentoría al mes, sin compromiso de permanencia. Incluye plan de seguimiento personalizado y videollamada de 1 hora.',
+    price: '60€ / mes',
+    originalPrice: '60€ / mes',
+  },
+  {
+    name: 'Trimestral',
+    description: '3 meses de mentoría, una sesión al mes. Incluye seguimiento y acompañamiento. ¡Ahorra respecto al plan mensual!',
+    price: '165€ / trimestre',
+    originalPrice: '180€ / trimestre',
+    savings: 'menos 8%',
+  },
+  {
+    name: 'Anual',
+    description: '12 meses de mentoría, una sesión al mes. Incluye seguimiento y acompañamiento continuo. El mejor precio garantizado.',
+    price: '600€ / año',
+    originalPrice: '720€ / año',
+    savings: 'menos 17%',
+    highlight: true,
+  },
+]
+---
+<div class="pricing-plans-wrapper">
+  <div class="pricing-plans">
+    {plans.map(plan => (
+      <div class:list={["plan-card", plan.highlight && "plan-card--highlight"]}>
+        {plan.highlight && (
+          <div class="plan-ribbon">Mejor opción</div>
+        )}
+        <h3 class="text-2xl font-bold mb-2">{plan.name}</h3>
+        <p class="mb-4 text-lg">{plan.description}</p>
+        <div class="plan-card__spacer flex-1"></div>
+        <div class="plan-card__price-row flex flex-col items-end w-full">
+          {plan.originalPrice && plan.originalPrice !== plan.price && (
+            <span class="plan-original-price">{plan.originalPrice}</span>
+          )}
+          {plan.savings && <span class="plan-savings-badge mb-1">{plan.savings}</span>}
+          <div class="plan-card__price">{plan.price}</div>
+          <button
+            id={`pay-btn-${plan.name.toLowerCase()}`}
+            class="plan-pay-btn mt-2"
+            type="button"
+            onclick={`window.handleStripeCheckout && window.handleStripeCheckout('${plan.name.toLowerCase()}')`}
+          >
+            Comprar
+          </button>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script is:inline>
+  window.handleStripeCheckout = async function(plan) {
+    const btn = document.getElementById(`pay-btn-${plan}`);
+    if (!btn) return;
+    btn.disabled = true;
+    btn.textContent = 'Redirigiendo...';
+    try {
+      const res = await fetch('/api/stripe-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plan })
+      });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        btn.textContent = 'Error';
+        btn.disabled = false;
+      }
+    } catch (e) {
+      btn.textContent = 'Error';
+      btn.disabled = false;
+    }
+  }
+</script>
+
+<style lang="scss">
+.pricing-plans-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.pricing-plans {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  @media (min-width: 600px) and (max-width: 1023px) {
+    flex-direction: row;
+    overflow-x: auto;
+    align-items: stretch;
+    gap: 2rem;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color-subtle) var(--background-color);
+  }
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2rem;
+  }
+}
+.plan-card {
+  background: var(--background-color);
+  color: var(--foreground-color);
+  border: 2px solid var(--border-color-subtle);
+  border-radius: var(--radius-l);
+  box-shadow: var(--elevation-1);
+  padding: var(--space-l);
+  flex: 1 1 0;
+  min-width: 250px;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  transition: border 0.2s, box-shadow 0.2s;
+  margin-bottom: 0;
+  min-height: 340px;
+}
+.plan-card__spacer {
+  flex: 1 1 auto;
+}
+.plan-card__price-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+}
+.plan-card__price {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  align-self: flex-end;
+}
+.plan-savings-badge {
+  background: var(--color-success, #22c55e);
+  color: var(--background-color);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-m);
+  padding: 0.25em 0.75em;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+}
+.plan-original-price {
+  text-decoration: line-through;
+  color: var(--color-neutral-500);
+  font-size: 1rem;
+  margin-bottom: 0.1rem;
+}
+.plan-card--highlight {
+  border: 2.5px solid var(--link-color);
+  box-shadow: var(--elevation-3);
+  z-index: 1;
+}
+.plan-ribbon {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  background: var(--link-color);
+  color: var(--background-color);
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5em 1.5em;
+  border-radius: var(--radius-m);
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+.plan-pay-btn {
+  background: var(--link-color);
+  color: var(--background-color);
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--radius-m);
+  padding: 0.5em 1.5em;
+  margin-top: 0.5em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.plan-pay-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+</style> 

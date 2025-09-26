@@ -1,0 +1,79 @@
+---
+title: "Stitch - El prototipo de Google acaba con los diseñadores... o no"
+author: "Juanje Cilla"
+date: "2025-06-17"
+description: "Reflexión sobre Stitch, el nuevo prototipo de Google, y su impacto en el diseño de interfaces."
+image: "/content/blog/images/stitch-hero.png"
+authorImage: "/images/juanje_cropped.jpg"
+---
+
+
+[English version on Medium](https://medium.com/@juanje.cilla/stitch-googles-new-prototype-kills-ui-designers-or-not-part-1-303c2883d133)
+
+
+### Introducción
+La IA generativa aplicada a imágenes o videos lleva un tiempo en nuestras vidas. Sin embargo, en el ámbito del desarrollo seguimos necesitando de diseñadores y diseñadoras UI/UX que nos den un diseño de las webs y apps ajustado a las necesidades de nuestro producto. ¿Seguro? 
+
+La enésima IA que viene a quitarnos el trabajo y que nos va a dejar en la calle se llama [Stitch](https://stitch.withgoogle.com/) y esta vez carga contra los diseñadores UI/UX. Este prototipo [presentado por Google en su último I/O](https://www.youtube.com/live/GjvgtwSOCao?si=BVgzkMfIkzgUU5Dm&t=83) nos proporciona un chatbot conversacional que genera interfaces gráficos para app y móvil. Tras hacer algunas pruebas he podido comprobar el estado actual de la herramienta y si de verdad nos va a quitar el trabajo.
+
+### Pvpc Planner
+Para un desarrollador como yo que no sabe realizar diseños en Figma y que la mayoría del tiempo se dedica a tareas más allá del UI, Stitch proporciona una herramienta interesante para empezar a dar un poco de sentido a los diseños de las aplicaciones. 
+
+En mi caso, llevo unos meses desarrollando una idea relacionada con el precio de la electricidad en el mercado regulado (PVPC) para ver de forma fácil y rápida a que hora es mejor poner un electrodoméstico u otro. La parte lógica lleva pensada y desarrollada desde hace un tiempo pero el UI ha estado parado al no saber cual es la mejor forma de visualizar los componentes.
+
+Como no tenía claro qué era lo mejor, empecé lanzando un prompt bastante genérico:
+
+>I want an app to show the PVPC energy cost for Spain and I could set some inhouse devices to get the best time to run them taking into account the cost of the electricity
+
+Aunque los LLMs han avanzado mucho, he decidido ser conservador y realizar las comunicaciones en Inglés para intentar llegar a un mejor resultado. Como era de esperar, este prompt era demasiado genérico por lo que Stitch necesito alguna indicación más para desarrollar el interfaz.
+
+![Pantalla 1](/content/blog/images/stitch/pvpc-prompt-inicial.png)
+
+Saqué mis mejores dotes de diseñador y le pedí la típica configuración que podemos encontrar en muchas apps actualmente:
+
+>I am thinking in a bottom bar showing the list of prices for each hour and also the possibility to use a graph. In other tab of the bottom bar there is a list of devices you could manage and also add new ones. Finally, there is a settings tab to configure default parameters as dark mode for example. I am not an UI expert so happy to change the design if needed
+
+Como veis, sigo dejando abierta la posibilidad de cambiar los diseños según sea necesario para obtener unos resultados acordes a lo que es más correcto y no solo a mis ideas. 
+
+![Pantalla configuración](/content/blog/images/stitch/pvpc-pantalla-configuracion.png)
+
+Con esta información extra, Stitch ha identificado la estructura básica que quería tener en mi aplicación y tras darle el visto bueno y las gracias (por lo que pueda pasar), obtuve una primera versión de las pantallas.
+
+![Pantalla 3](/content/blog/images/stitch/pvpc-primeras-pantallas.png)
+
+La verdad es que como primera aproximación me ha sorprendido mucho. El punto clave es que al poder pasar este diseño a Figma tenemos mucho tiempo ganado. Podemos comprobar que el diseño podría ser completamente funcional y cubrir las necesidades básicas de la app. Una cosa que me ha gustado especialmente es la generación de la configuración ya que simplemente dándole el ejemplo del modo oscuro, ha podido rellenar otras configuraciones basadas en el contexto de la app.
+
+Por otro lado, si nos fijamos en el Floating Action Button (FAB) podemos comprobar que aparece distorsionado. Sin tener idea de cómo funciona esto por debajo, tiendo a pensar que la generación de componentes no está basada en unas plantillas predeterminadas o que el modelo esté ajustado a los componentes de Material Design.
+
+Una de las cosas que tenía claras es que quería comprobar fácilmente las fechas contiguas a la actual por lo que le pedí que incluyese unos botones para navegar por las fechas.
+
+>I can see that the user can change the date on the top right icon. Would be nice to have something quicker for just previous day or so.
+
+
+![Pantalla 4](/content/blog/images/stitch/pvpc-botones-fecha.png)
+
+De forma acertada, incluyó los botones que le pedí pero por el camino se dejó ciertas funcionalidades que me habían gustado como mostrar un calendario para ir a fechas más lejanas. Aquí podemos ver la importancia de ir matizando los prompts para que contengan el estado más preciso que queremos conseguir.
+
+>These updates are great but we still need to show the date somehow and I liked the idea of having a calendar icon to go to further dates if needed
+
+![Pantalla 5](/content/blog/images/stitch/pvpc-error-grafico.png)
+
+Esta vez no estuvo nada acertado. No sólo no introdujo los cambios que le pedí sino que quitó el gráfico y los textos indicando el precio actual. Por lo tanto, tenemos que afinar muy bien nuestro prompt para que contenga los cambios junto con las partes existentes que nos gustan.
+
+>I cannot see the calendar icon. We still have the "today" label but not showing the exact date. Finally, we still need to present the info in a graph along with the list
+
+![Pantalla 6](/content/blog/images/stitch/pvpc-final-ui.png)
+
+Tras recordar los componentes que tenía que incluir podemos comprobar como el diseño queda bastante afinado. La exportación a Figma funciona bastante bien y aunque este diseño no está fino al 100%, es una muy buena base para desarrollar y evolucionar.
+
+He dejado de lado el resto de pantallas por el momento y otras funcionalidades que tiene Stitch para una futura segunda parte y profundizar en ellas.
+
+### Conclusiones
+- La herramienta nos proporciona una solución perfecta para combatir el síndrome del folio en blanco. Si además, eres un desarrollador/a que no tiene mucha idea de combinar colores o los distintos componentes disponibles te ahorra mucho tiempo invertido en tener que conocer herramientas como Figma.
+- Hablando de Figma, el mayor acierto para mi es que se pueden importar directamente las interfaces generadas. Tener un diseño en imagen puede ayudarnos a tener una idea sobre lo que queremos implementar pero cualquier desarrollador/a sabe que en las empresas actualmente se trabaja con diseños en Figma o similares que nos proporcionan mucha más información a la hora de crear los componentes visuales.
+- No todo es oro lo que reluce. Stitch es capaz de generar interfaces mucho mejor de lo que había visto hasta ahora pero falla en los detalles. Como en todas las IAs generativas, hay que tener mucho cuidado en los prompts que se proporcionan para conseguir exactamente lo que se desea. Componentes básicos como el Floating Action Button (FAB) aparecen distorsionados y no es capaz de usarlo correctamente.
+- Los mejores diseños de Figma contienen un listado de componentes que están enlazados en cada pantalla lo que permite realizar cambios de forma general. Actualmente esto no es posible en Stitch ya que las configuraciones que genera son las básicas dentro de la herramienta.
+
+Volveremos con otro post relacionado con Stitch para ver si las IAs nos quitan el trabajo ya o todavía tenemos unos añitos por delante.
+
+Nos vemos!

@@ -1,0 +1,49 @@
+---
+/**
+ * SubstackPostItem Component
+ * @description Muestra un post individual de Substack con título, enlace, fecha, imagen y subtítulo
+ */
+interface Props {
+  title: string
+  link: string
+  date: string
+  image?: string
+  subtitle?: string
+}
+
+const { title, link, date, image = 'https://assets.substack.com/image/fetch/w_400,h_250,c_fill/https%3A%2F%2Fsubstack.com%2Fimg%2Fsubstack-default-social-image.png', subtitle } = Astro.props
+---
+<li class="substack-post-item">
+  <img src={image} alt={title} class="substack-post-item__image" loading="lazy" />
+  <div class="flex-1">
+    <a href={link} target="_blank" rel="noopener" class="text-xl font-bold underline leading-tight">{title}</a>
+    {subtitle && <div class="text-base text-neutral-700 dark:text-neutral-300 mt-1 mb-1">{subtitle}</div>}
+    <span class="block text-neutral-600 dark:text-neutral-400 text-sm mt-1">{date}</span>
+  </div>
+</li>
+
+<style lang="scss">
+.substack-post-item {
+  display: flex;
+  gap: var(--space-m);
+  align-items: center;
+  background: var(--background-color);
+  color: var(--foreground-color);
+  border-radius: var(--radius-l);
+  box-shadow: var(--elevation-1);
+  border: 1.5px solid var(--border-color-subtle);
+  padding: var(--space-m);
+}
+.substack-post-item__image {
+  width: 112px;
+  height: 80px;
+  min-width: 112px;
+  max-width: 112px;
+  min-height: 80px;
+  max-height: 80px;
+  object-fit: cover;
+  border-radius: var(--radius-m);
+  border: 1px solid var(--border-color-subtle);
+  background: var(--color-neutral-100);
+}
+</style> 

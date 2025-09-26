@@ -1,0 +1,53 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Card } from 'accessible-astro-components'
+import { getCollection } from 'astro:content'
+
+const posts = (await getCollection('blog')).sort((a, b) => {
+  const dateA = new Date(a.data.date)
+  const dateB = new Date(b.data.date)
+  return dateB.getTime() - dateA.getTime()
+})
+---
+
+<DefaultLayout title="Blog" description="Listado de artículos del blog de Coding Pit.">
+  <PageHeader
+    title="Blog"
+    subtitle="Descubre los últimos artículos y reflexiones sobre desarrollo, accesibilidad y tecnología."
+    bgType="bordered"
+  />
+
+  <section class="my-12">
+    <div class="container">
+      <ul class="my-3 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post) => (
+          <li>
+            <Card
+              url={"/blog/" + post.id}
+              title={post.data.title}
+              footer={post.data.author}
+              img={post.data.image}      >
+              {post.data.description}
+            </Card>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</DefaultLayout>
+
+<style lang="scss" is:global>
+  @use '../../assets/scss/base/mixins' as *;
+
+  .card {
+    h3 {
+      margin-block-end: var(--space-xs);
+      line-height: 0.75;
+    }
+
+    a {
+      @include text-decoration(transparent, var(--foreground-color), 4px, 2px);
+    }
+  }
+</style> 

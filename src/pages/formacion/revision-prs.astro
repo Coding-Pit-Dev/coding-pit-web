@@ -1,0 +1,14 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import PRReviewCard from '@components/PRReviewCard.astro'
+---
+
+<DefaultLayout title="Revisión de Pull Requests">
+  <PageHeader title="Revisión de Pull Requests" subtitle="Mejora la calidad de tu código con feedback experto y detallado" bgType="bordered" />
+  <section class="my-20">
+    <div class="container">
+      <PRReviewCard />
+    </div>
+  </section>
+</DefaultLayout> 

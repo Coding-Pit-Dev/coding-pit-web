@@ -1,0 +1,42 @@
+_mentorias.txt
+Acelera tu carrera profesional
+En el competitivo mundo del desarrollo de software, la experiencia práctica y el conocimiento especializado son clave para destacar. En Coding Pit, no solo te ayudamos a dominar las habilidades técnicas que necesitas, sino que te ofrecemos una guía estratégica para resolver los desafíos del mundo real.
+
+Lo que ofrecemos
+Nuestras mentorías están diseñadas para programadores que buscan ir más allá del código. Te enseñamos a:
+
+
+Construir aplicaciones de alta calidad: Aprende a crear software utilizando arquitecturas modernas y escalables, como la Clean Architecture, y a implementar principios de diseño como SOLID.
+
+
+Mejorar el rendimiento: Optimiza el rendimiento, reduce los tiempos de carga y mejora la experiencia del usuario con nuestras técnicas avanzadas. Por ejemplo, te mostraremos cómo mejorar el rendimiento de los carruseles, lo que puede resultar en una reducción del 12 % en el tiempo de carga.
+
+Liderar equipos de manera efectiva: La gestión de equipos es una habilidad crucial. Te proporcionamos las herramientas para dirigir y motivar a equipos, gestionar proyectos con metodologías 
+
+SCRUM y usar plataformas como Jira.
+
+
+
+Impulsar la innovación: Aprende a liderar iniciativas para mejorar la colaboración y las buenas prácticas, como la creación de una Android Guild para optimizar el rendimiento entre desarrolladores.
+
+Integrar la accesibilidad en tu trabajo: La accesibilidad no es opcional. Te guiaremos para que te asegures de que tus proyectos cumplen con los principios de 
+
+WCAG, desde el diseño hasta las pruebas de calidad.
+
+
+
+Resolución de problemas: Te ayudamos a afrontar retos complejos, como la implementación de sistemas de seguimiento para medir el rendimiento de eventos  o la integración de nuevas funciones en apps existentes que ya tienen millones de usuarios.
+
+¿Por qué elegirnos?
+Con casi 10 años de experiencia en el sector , nuestro equipo ha demostrado su capacidad para ofrecer soluciones innovadoras en empresas de renombre como 
+
+Eventbrite y OpenBank. Nuestro conocimiento va más allá del desarrollo de aplicaciones, abarcando áreas como la robótica, la inteligencia artificial y la ciberseguridad, lo que nos permite ofrecer una perspectiva única y completa en cada mentoría.
+
+
+
+Si estás interesado en el desarrollo móvil, podemos profundizar en tecnologías específicas como 
+
+Kotlin, Jetpack Compose, Retrofit y muchas más.
+
+
+¿Listo para llevar tus habilidades al siguiente nivel? Contáctanos y descubre cómo podemos ayudarte a alcanzar tus metas profesionales.

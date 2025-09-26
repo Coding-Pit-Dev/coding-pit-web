@@ -1,0 +1,32 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import ProjectCard from '@components/ProjectCard.astro'
+---
+
+<DefaultLayout title="Open Source">
+  <PageHeader title="Open Source" subtitle="Proyectos open source desarrollados y mantenidos por Coding Pit." bgType="bordered" />
+  <section class="my-12">
+    <div class="container">
+      <p class="text-2xl">Descubre y colabora en nuestros proyectos de código abierto enfocados en accesibilidad, desarrollo web y comunidad.</p>
+      <div class="mt-10 flex flex-col gap-8 items-center">
+        <ProjectCard
+          image="https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=400&q=80"
+          imageAlt="Armadura medieval y escudos en una armería"
+          title="Armory-android"
+          link="https://github.com/Coding-Pit-Dev/Armory-android"
+          description="Armory-android es un repositorio cuyo objetivo es reunir utilidades y soluciones establecidas y probadas por la comunidad para estandarizar la resolución de problemas en diferentes proyectos Android. La idea es que, importando simplemente esta librería, puedas acceder a herramientas fiables y patrones recomendados para acelerar el desarrollo y mejorar la calidad de tus proyectos."
+          status="Actualmente el repositorio es privado, pero su finalidad es servir como base común para la comunidad de desarrolladores Android."
+        />
+        <ProjectCard
+          image="https://play-lh.googleusercontent.com/4Qn5Vn6Qn6Qn6Qn6Qn6Qn6Qn6Qn6Qn6Qn6Qn6Qn6Qn6Qn6Qn6Q=w240-h480-rw"
+          imageAlt="PVPC Android app logo"
+          title="PVPC-Android"
+          link="https://github.com/Coding-Pit-Dev/PVPC-Android"
+          description="App open source para consultar los precios de la electricidad PVPC en España. Visualiza el histórico, recibe alertas y optimiza tu consumo energético."
+          status="Disponible en Google Play y con el código fuente abierto en GitHub."
+        />
+      </div>
+    </div>
+  </section>
+</DefaultLayout> 

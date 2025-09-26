@@ -1,0 +1,102 @@
+---
+/**
+ * AppCard Component
+ * @description Card expandible para mostrar información de una app
+ */
+interface Props {
+  name: string
+  icon: string
+  shortDescription: string
+  longDescription: string
+  screenshots: string[]
+  playStoreUrl: string
+  reviews: { author: string, text: string }[]
+  developer: string
+  developerEmail: string
+  developerAddress: string
+}
+
+const { name, icon, shortDescription, longDescription, screenshots, playStoreUrl, reviews, developer, developerEmail, developerAddress } = Astro.props
+---
+<div class="app-card" x-data="{ expanded: false }" x-on:click="expanded = !expanded" tabindex="0" x-on:keydown.enter="expanded = !expanded">
+  <div class="app-card__header flex items-center gap-4">
+    <img src={icon} alt={name + ' icon'} class="app-card__icon" />
+    <div>
+      <h3 class="text-xl font-bold mb-1">{name}</h3>
+      <p class="text-base text-neutral-700 dark:text-neutral-300">{shortDescription}</p>
+    </div>
+  </div>
+  <div class="app-card__details mt-4" x-show="expanded" style="display:none">
+    <div class="flex flex-wrap gap-4 mb-4">
+      {screenshots.map(src => <img src={src} alt={name + ' screenshot'} class="app-card__screenshot" />)}
+    </div>
+    <p class="mb-4 text-[var(--foreground-color)]">{longDescription}</p>
+    <a href={playStoreUrl} target="_blank" rel="noopener" class="app-card__playstore">Ver en Google Play</a>
+    <div class="mt-4">
+      <h4 class="font-semibold mb-2">Mejores reseñas</h4>
+      <ul class="flex flex-col gap-2">
+        {reviews.map(r => <li class="app-card__review"><span class="font-bold">{r.author}:</span> {r.text}</li>)}
+      </ul>
+    </div>
+    <div class="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
+      <div>Desarrollador: {developer}</div>
+      <div>Email: <a href={`mailto:${developerEmail}`}>{developerEmail}</a></div>
+      <div>Dirección: {developerAddress}</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Alpine.js CDN para interactividad
+</script>
+
+<style lang="scss">
+.app-card {
+  background: var(--background-color);
+  color: var(--foreground-color);
+  border: 1.5px solid var(--border-color-subtle);
+  border-radius: var(--radius-l);
+  box-shadow: var(--elevation-1);
+  padding: var(--space-l);
+  margin-bottom: var(--space-l);
+  cursor: pointer;
+  transition: box-shadow 0.2s, border 0.2s;
+  outline: none;
+  &:hover, &:focus {
+    box-shadow: var(--elevation-3);
+    border-color: var(--link-color);
+  }
+}
+.app-card__header {
+  align-items: center;
+}
+.app-card__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color-subtle);
+  background: var(--color-neutral-100);
+}
+.app-card__screenshot {
+  width: 120px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: var(--radius-m);
+  border: 1px solid var(--border-color-subtle);
+  background: var(--color-neutral-100);
+}
+.app-card__playstore {
+  display: inline-block;
+  margin-top: 0.5em;
+  color: var(--link-color);
+  font-weight: bold;
+  text-decoration: underline;
+}
+.app-card__review {
+  background: var(--color-neutral-100);
+  color: var(--foreground-color);
+  border-radius: var(--radius-m);
+  padding: 0.5em 1em;
+  font-size: 1rem;
+}
+</style> 

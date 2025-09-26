@@ -1,0 +1,652 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import PricingPlans from '@components/PricingPlans.astro'
+import PRReviewCard from '@components/PRReviewCard.astro'
+import ContentMedia from '@components/ContentMedia.astro'
+
+const title = 'Mentorías - Coding Pit'
+const description = 'Coding Pit: tu espacio para crecer como programador. Mentorías personalizadas para acelerar tu crecimiento profesional en desarrollo de software.'
+---
+
+<DefaultLayout 
+  title={title} 
+  description={description}
+  author="Juan José Vázquez"
+>
+  <!-- Skip to main content link for screen readers -->
+  <a 
+    href="#main-content" 
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-600 text-white px-4 py-2 rounded-md z-50 focus:ring-4 focus:ring-primary-300"
+  >
+    Saltar al contenido principal
+  </a>
+
+  <PageHeader 
+    title="Coding Pit: tu espacio para crecer como programador" 
+    subtitle="Mentorías personalizadas que te ayudan a acelerar tu crecimiento y alcanzar tus objetivos profesionales más rápido"
+    bgType="bordered" 
+  />
+
+  <main id="main-content" role="main">
+  
+  <!-- Hero CTA Section -->
+  <section class="my-8 md:my-16" aria-labelledby="hero-cta">
+    <div class="container">
+      <div class="flex justify-center">
+        <a 
+          href="/contacto" 
+          class="button has-icon text-base md:text-lg px-6 py-3 md:px-8 md:py-4 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800"
+          aria-label="Reserva tu primera sesión gratuita de mentoría"
+          role="button"
+        >
+          <span aria-hidden="true">👉</span>
+          Reserva tu primera sesión gratuita
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction Section -->
+  <section class="my-12 md:my-16">
+    <div class="container px-4 md:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="text-lg md:text-xl lg:text-2xl leading-relaxed text-neutral-700 dark:text-neutral-200">
+          En el competitivo mundo del desarrollo de software, la experiencia práctica y el conocimiento especializado son clave para destacar. En Coding Pit, no solo te ayudamos a dominar las habilidades técnicas que necesitas, sino que te ofrecemos una guía estratégica para resolver los desafíos del mundo real.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Mentoring Section -->
+  <section class="my-12 md:my-16 lg:my-20" aria-labelledby="why-mentoring">
+    <div class="container px-4 md:px-6 lg:px-8">
+      <h2 id="why-mentoring" class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-12 text-neutral-900 dark:text-neutral-50">¿Por qué una mentoría?</h2>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
+          <div class="bg-white dark:bg-neutral-800 p-4 md:p-6 rounded-lg shadow-sm border border-neutral-200 dark:border-neutral-700 hover:shadow-md transition-shadow duration-200">
+            <div class="flex items-start space-x-3 md:space-x-4">
+              <div class="flex-shrink-0">
+                <div class="w-10 h-10 md:w-12 md:h-12 bg-primary-100 dark:bg-primary-900/80 rounded-lg flex items-center justify-center">
+                  <span class="text-xl md:text-2xl" aria-hidden="true">⚡</span>
+                </div>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-lg md:text-xl font-semibold mb-2 text-neutral-900 dark:text-neutral-50">Resuelve dudas en tiempo real</h3>
+                <p class="text-sm md:text-base text-neutral-700 dark:text-neutral-200 leading-relaxed">
+                  No más horas perdidas buscando respuestas. Obtén soluciones inmediatas y explicaciones claras de un experto.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-neutral-800 p-4 md:p-6 rounded-lg shadow-sm border border-neutral-200 dark:border-neutral-700 hover:shadow-md transition-shadow duration-200">
+            <div class="flex items-start space-x-3 md:space-x-4">
+              <div class="flex-shrink-0">
+                <div class="w-10 h-10 md:w-12 md:h-12 bg-secondary-100 dark:bg-secondary-900/80 rounded-lg flex items-center justify-center">
+                  <span class="text-xl md:text-2xl" aria-hidden="true">🛡️</span>
+                </div>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-lg md:text-xl font-semibold mb-2 text-neutral-900 dark:text-neutral-50">Evita errores comunes</h3>
+                <p class="text-sm md:text-base text-neutral-700 dark:text-neutral-200 leading-relaxed">
+                  Aprende de la experiencia de otros y evita los obstáculos típicos que frenan a muchos desarrolladores.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-neutral-800 p-4 md:p-6 rounded-lg shadow-sm border border-neutral-200 dark:border-neutral-700 hover:shadow-md transition-shadow duration-200">
+            <div class="flex items-start space-x-3 md:space-x-4">
+              <div class="flex-shrink-0">
+                <div class="w-10 h-10 md:w-12 md:h-12 bg-accent-100 dark:bg-accent-900/80 rounded-lg flex items-center justify-center">
+                  <span class="text-xl md:text-2xl" aria-hidden="true">🎯</span>
+                </div>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-lg md:text-xl font-semibold mb-2 text-neutral-900 dark:text-neutral-50">Avanza con un plan personalizado</h3>
+                <p class="text-sm md:text-base text-neutral-700 dark:text-neutral-200 leading-relaxed">
+                  Recibe una hoja de ruta adaptada a tu nivel actual y objetivos específicos de carrera.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-neutral-800 p-4 md:p-6 rounded-lg shadow-sm border border-neutral-200 dark:border-neutral-700 hover:shadow-md transition-shadow duration-200">
+            <div class="flex items-start space-x-3 md:space-x-4">
+              <div class="flex-shrink-0">
+                <div class="w-10 h-10 md:w-12 md:h-12 bg-primary-100 dark:bg-primary-900/80 rounded-lg flex items-center justify-center">
+                  <span class="text-xl md:text-2xl" aria-hidden="true">💪</span>
+                </div>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-lg md:text-xl font-semibold mb-2 text-neutral-900 dark:text-neutral-50">Gana confianza en entrevistas</h3>
+                <p class="text-sm md:text-base text-neutral-700 dark:text-neutral-200 leading-relaxed">
+                  Prepárate para procesos de selección con práctica real y feedback constructivo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <a 
+            href="/contacto" 
+            class="button has-icon button-primary text-sm md:text-base px-4 py-2 md:px-6 md:py-3 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800"
+            aria-label="Empieza a construir tu carrera con el apoyo que necesitas"
+            role="button"
+          >
+            <span aria-hidden="true">🚀</span>
+            <span class="hidden sm:inline">Empieza a construir tu carrera con el apoyo que necesitas</span>
+            <span class="sm:hidden">Construye tu carrera</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Offer Section -->
+  <ContentMedia imgSrc="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&crop=faces">
+    <h2>Lo que ofrecemos</h2>
+    <p class="text-2xl mb-8">
+      Nuestras mentorías están diseñadas para programadores que buscan ir más allá del código. Te enseñamos a:
+    </p>
+    <div class="space-y-6">
+      <div class="flex items-start gap-4">
+        <div class="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+          <span class="text-white text-sm" aria-hidden="true">🏗️</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Construir aplicaciones de alta calidad</h3>
+          <p class="text-lg">Aprende a crear software utilizando arquitecturas modernas y escalables, como la Clean Architecture, y a implementar principios de diseño como SOLID.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+          <span class="text-white text-sm" aria-hidden="true">⚡</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Mejorar el rendimiento</h3>
+          <p class="text-lg">Optimiza el rendimiento, reduce los tiempos de carga y mejora la experiencia del usuario. Por ejemplo, te mostraremos cómo mejorar el rendimiento de los carruseles, lo que puede resultar en una reducción del 12% en el tiempo de carga.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="flex-shrink-0 w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+          <span class="text-white text-sm" aria-hidden="true">👥</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Liderar equipos de manera efectiva</h3>
+          <p class="text-lg">La gestión de equipos es una habilidad crucial. Te proporcionamos las herramientas para dirigir y motivar a equipos, gestionar proyectos con metodologías SCRUM y usar plataformas como Jira.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="flex-shrink-0 w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+          <span class="text-white text-sm" aria-hidden="true">♿</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Integrar la accesibilidad</h3>
+          <p class="text-lg">La accesibilidad no es opcional. Te guiaremos para que te asegures de que tus proyectos cumplen con los principios de WCAG, desde el diseño hasta las pruebas de calidad.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="flex-shrink-0 w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+          <span class="text-white text-sm" aria-hidden="true">💡</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Resolución de problemas</h3>
+          <p class="text-lg">Te ayudamos a afrontar retos complejos, como la implementación de sistemas de seguimiento para medir el rendimiento de eventos o la integración de nuevas funciones en apps existentes que ya tienen millones de usuarios.</p>
+        </div>
+      </div>
+    </div>
+  </ContentMedia>
+
+  <!-- Target Audience Section -->
+  <section class="my-12 md:my-16 lg:my-20" aria-labelledby="target-audience">
+    <div class="container px-4 md:px-6 lg:px-8">
+      <h2 id="target-audience" class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-12 text-neutral-900 dark:text-neutral-50">¿Para quién es Coding Pit?</h2>
+      
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-12">
+          <!-- Students -->
+          <div class="bg-white dark:bg-neutral-800 p-6 md:p-8 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 text-center hover:shadow-md transition-shadow duration-200 focus-within:ring-2 focus-within:ring-primary-300 dark:focus-within:ring-primary-600">
+            <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-100 dark:bg-blue-900/80 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🎓</span>
+            </div>
+            <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-neutral-900 dark:text-neutral-50">Estudiantes</h3>
+            <p class="text-neutral-700 dark:text-neutral-200 text-sm md:text-base leading-relaxed">
+              Refuerza lo que aprendes en la universidad o bootcamp con práctica real y orientación personalizada para destacar en tu formación.
+            </p>
+          </div>
+
+          <!-- Self-taught Developers -->
+          <div class="bg-white dark:bg-neutral-800 p-6 md:p-8 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 text-center hover:shadow-md transition-shadow duration-200 focus-within:ring-2 focus-within:ring-secondary-300 dark:focus-within:ring-secondary-600">
+            <div class="w-12 h-12 md:w-16 md:h-16 bg-green-100 dark:bg-green-900/80 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🚀</span>
+            </div>
+            <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-neutral-900 dark:text-neutral-50">Autodidactas</h3>
+            <p class="text-neutral-700 dark:text-neutral-200 text-sm md:text-base leading-relaxed">
+              Supera los bloqueos típicos del aprendizaje autodidacta y avanza más rápido con la guía de alguien que ya recorrió ese camino.
+            </p>
+          </div>
+
+          <!-- Junior Professionals -->
+          <div class="bg-white dark:bg-neutral-800 p-6 md:p-8 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 text-center hover:shadow-md transition-shadow duration-200 focus-within:ring-2 focus-within:ring-accent-300 dark:focus-within:ring-accent-600">
+            <div class="w-12 h-12 md:w-16 md:h-16 bg-purple-100 dark:bg-purple-900/80 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">💼</span>
+            </div>
+            <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-neutral-900 dark:text-neutral-50">Juniors</h3>
+            <p class="text-neutral-700 dark:text-neutral-200 text-sm md:text-base leading-relaxed">
+              Acelera tu crecimiento profesional, mejora tus habilidades técnicas y prepárate para dar el salto a posiciones senior.
+            </p>
+          </div>
+
+          <!-- Career Changers -->
+          <div class="bg-white dark:bg-neutral-800 p-6 md:p-8 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 text-center hover:shadow-md transition-shadow duration-200 focus-within:ring-2 focus-within:ring-primary-300 dark:focus-within:ring-primary-600">
+            <div class="w-12 h-12 md:w-16 md:h-16 bg-orange-100 dark:bg-orange-900/80 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🔄</span>
+            </div>
+            <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-neutral-900 dark:text-neutral-50">Cambio de carrera</h3>
+            <p class="text-neutral-700 dark:text-neutral-200 text-sm md:text-base leading-relaxed">
+              Transiciona al mundo del desarrollo con una estrategia clara y el apoyo necesario para hacer el cambio con confianza.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <a 
+            href="/contacto" 
+            class="button has-icon button-secondary text-sm md:text-base px-4 py-2 md:px-6 md:py-3 focus:ring-4 focus:ring-secondary-300 dark:focus:ring-secondary-800"
+            aria-label="Encuentra tu lugar en el mundo del software"
+            role="button"
+          >
+            <span aria-hidden="true">✨</span>
+            <span class="hidden sm:inline">Encuentra tu lugar en el mundo del software</span>
+            <span class="sm:hidden">Encuentra tu lugar</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <ContentMedia imgSrc="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop&crop=faces" reverseImg={true}>
+    <h2>¿Por qué elegirnos?</h2>
+    <p class="text-2xl mb-8">
+      Con casi 10 años de experiencia en el sector, nuestro equipo ha demostrado su capacidad para ofrecer soluciones innovadoras en empresas de renombre como Eventbrite y OpenBank.
+    </p>
+    <div class="space-y-6">
+      <div class="flex items-start gap-4">
+        <div class="flex-shrink-0 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+          <span class="text-white text-sm" aria-hidden="true">🏢</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Experiencia en empresas de renombre</h3>
+          <p class="text-lg">Hemos trabajado en Eventbrite y OpenBank, aportando soluciones innovadoras y escalables.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="flex-shrink-0 w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center">
+          <span class="text-white text-sm" aria-hidden="true">🤖</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Conocimiento multidisciplinar</h3>
+          <p class="text-lg">Nuestro conocimiento va más allá del desarrollo de aplicaciones, abarcando áreas como la robótica, la inteligencia artificial y la ciberseguridad.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+          <span class="text-white text-sm" aria-hidden="true">📱</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Especialización en desarrollo móvil</h3>
+          <p class="text-lg">Si estás interesado en el desarrollo móvil, podemos profundizar en tecnologías específicas como Kotlin, Jetpack Compose, Retrofit y muchas más.</p>
+        </div>
+      </div>
+    </div>
+  </ContentMedia>
+
+  <!-- How It Works Section -->
+  <section class="my-12 md:my-16 lg:my-20" aria-labelledby="how-it-works">
+    <div class="container px-4 md:px-6 lg:px-8">
+      <h2 id="how-it-works" class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-12 text-neutral-900 dark:text-neutral-50">Cómo funciona</h2>
+      
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-12">
+          <!-- Step 1: Book Free Intro Session -->
+          <div class="relative">
+            <div class="bg-white dark:bg-neutral-800 p-6 md:p-8 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 text-center hover:shadow-md transition-shadow duration-200 h-full focus-within:ring-2 focus-within:ring-primary-300 dark:focus-within:ring-primary-600">
+              <div class="absolute -top-3 md:-top-4 left-1/2 transform -translate-x-1/2">
+                <div class="w-6 h-6 md:w-8 md:h-8 bg-primary-600 dark:bg-primary-500 text-white rounded-full flex items-center justify-center font-bold text-xs md:text-sm" aria-label="Paso 1">
+                  1
+                </div>
+              </div>
+              <div class="w-12 h-12 md:w-16 md:h-16 bg-primary-100 dark:bg-primary-900/80 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 mt-3 md:mt-4">
+                <span class="text-2xl md:text-3xl" aria-hidden="true">📅</span>
+              </div>
+              <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-neutral-900 dark:text-neutral-50">Reserva tu sesión gratuita</h3>
+              <p class="text-neutral-700 dark:text-neutral-200 text-sm md:text-base leading-relaxed">
+                Agenda una primera sesión sin compromiso donde nos conocemos y evaluamos tu situación actual.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2: Share Objectives and Current Level -->
+          <div class="relative">
+            <div class="bg-white dark:bg-neutral-800 p-6 md:p-8 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 text-center hover:shadow-md transition-shadow duration-200 h-full focus-within:ring-2 focus-within:ring-secondary-300 dark:focus-within:ring-secondary-600">
+              <div class="absolute -top-3 md:-top-4 left-1/2 transform -translate-x-1/2">
+                <div class="w-6 h-6 md:w-8 md:h-8 bg-secondary-600 dark:bg-secondary-500 text-white rounded-full flex items-center justify-center font-bold text-xs md:text-sm" aria-label="Paso 2">
+                  2
+                </div>
+              </div>
+              <div class="w-12 h-12 md:w-16 md:h-16 bg-secondary-100 dark:bg-secondary-900/80 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 mt-3 md:mt-4">
+                <span class="text-2xl md:text-3xl" aria-hidden="true">🎯</span>
+              </div>
+              <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-neutral-900 dark:text-neutral-50">Comparte tus objetivos</h3>
+              <p class="text-neutral-700 dark:text-neutral-200 text-sm md:text-base leading-relaxed">
+                Hablamos sobre tus metas profesionales, nivel actual y los desafíos que enfrentas en tu carrera.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3: Create Personalized Plan Together -->
+          <div class="relative">
+            <div class="bg-white dark:bg-neutral-800 p-6 md:p-8 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 text-center hover:shadow-md transition-shadow duration-200 h-full focus-within:ring-2 focus-within:ring-accent-300 dark:focus-within:ring-accent-600">
+              <div class="absolute -top-3 md:-top-4 left-1/2 transform -translate-x-1/2">
+                <div class="w-6 h-6 md:w-8 md:h-8 bg-accent-600 dark:bg-accent-500 text-white rounded-full flex items-center justify-center font-bold text-xs md:text-sm" aria-label="Paso 3">
+                  3
+                </div>
+              </div>
+              <div class="w-12 h-12 md:w-16 md:h-16 bg-accent-100 dark:bg-accent-900/80 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 mt-3 md:mt-4">
+                <span class="text-2xl md:text-3xl" aria-hidden="true">🗺️</span>
+              </div>
+              <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-neutral-900 dark:text-neutral-50">Creamos tu plan personalizado</h3>
+              <p class="text-neutral-700 dark:text-neutral-200 text-sm md:text-base leading-relaxed">
+                Diseñamos juntos una hoja de ruta específica con pasos concretos para alcanzar tus objetivos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 4: Ongoing Support with Periodic Sessions -->
+          <div class="relative">
+            <div class="bg-white dark:bg-neutral-800 p-6 md:p-8 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 text-center hover:shadow-md transition-shadow duration-200 h-full focus-within:ring-2 focus-within:ring-primary-300 dark:focus-within:ring-primary-600">
+              <div class="absolute -top-3 md:-top-4 left-1/2 transform -translate-x-1/2">
+                <div class="w-6 h-6 md:w-8 md:h-8 bg-primary-600 dark:bg-primary-500 text-white rounded-full flex items-center justify-center font-bold text-xs md:text-sm" aria-label="Paso 4">
+                  4
+                </div>
+              </div>
+              <div class="w-12 h-12 md:w-16 md:h-16 bg-green-100 dark:bg-green-900/80 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 mt-3 md:mt-4">
+                <span class="text-2xl md:text-3xl" aria-hidden="true">🤝</span>
+              </div>
+              <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-neutral-900 dark:text-neutral-50">Acompañamiento continuo</h3>
+              <p class="text-neutral-700 dark:text-neutral-200 text-sm md:text-base leading-relaxed">
+                Sesiones periódicas para resolver dudas, ajustar el plan y asegurar tu progreso constante.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center mt-8 md:mt-12">
+          <a 
+            href="/contacto" 
+            class="button has-icon button-primary text-base md:text-lg px-6 py-3 md:px-8 md:py-4 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800"
+            aria-label="Agenda tu sesión ahora mismo"
+            role="button"
+          >
+            <span aria-hidden="true">📅</span>
+            <span class="hidden sm:inline">Agenda tu sesión ahora mismo</span>
+            <span class="sm:hidden">Agenda tu sesión</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mentoring Approach Section -->
+  <section class="my-16">
+    <div class="container">
+      <h2 class="text-4xl font-bold text-center mb-12">Nuestro enfoque de mentoría</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl shadow p-6 flex flex-col gap-4">
+          <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto">
+            <span class="text-white text-xl" aria-hidden="true">👥</span>
+          </div>
+          <h3 class="text-2xl font-bold text-center">Seguimiento continuo</h3>
+          <p class="text-lg text-center">No estarás solo en tu proceso: tendrás un mentor pendiente de tu evolución, resolviendo dudas y ayudándote a superar cada reto. El acompañamiento es constante, para que avances con seguridad y confianza.</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl shadow p-6 flex flex-col gap-4">
+          <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto">
+            <span class="text-white text-xl" aria-hidden="true">⏱️</span>
+          </div>
+          <h3 class="text-2xl font-bold text-center">Tú marcas el ritmo</h3>
+          <p class="text-lg text-center">¿Prefieres avanzar rápido o necesitas más tiempo para asimilar conceptos? Tú decides la velocidad y la intensidad de las sesiones. Nos adaptamos a tu agenda y a tu ritmo de aprendizaje.</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl shadow p-6 flex flex-col gap-4">
+          <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto">
+            <span class="text-white text-xl" aria-hidden="true">🎯</span>
+          </div>
+          <h3 class="text-2xl font-bold text-center">Ajustado a tus necesidades</h3>
+          <p class="text-lg text-center">Cada persona es diferente. Por eso, las mentorías se diseñan a medida: trabajamos sobre tus objetivos, tus intereses y tus puntos de mejora, para que el aprendizaje sea realmente útil y transformador.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Testimonials Section -->
+  <section class="my-12 md:my-16 lg:my-20" aria-labelledby="testimonials">
+    <div class="container px-4 md:px-6 lg:px-8">
+      <h2 id="testimonials" class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-12 text-neutral-900 dark:text-neutral-50">Testimonios</h2>
+      
+      <div class="max-w-6xl mx-auto">
+        <!-- Testimonials grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
+          <!-- Testimonial Card 1 -->
+          <article class="bg-white dark:bg-neutral-800 p-6 md:p-8 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 hover:shadow-md transition-shadow duration-200 focus-within:ring-2 focus-within:ring-primary-300 dark:focus-within:ring-primary-600">
+            <div class="flex items-center mb-4 md:mb-6">
+              <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-primary-500 to-primary-700 rounded-full flex items-center justify-center text-white font-bold text-base md:text-lg flex-shrink-0" aria-hidden="true">
+                A
+              </div>
+              <div class="ml-3 md:ml-4 min-w-0">
+                <h3 class="font-semibold text-neutral-900 dark:text-neutral-50 text-sm md:text-base">Ana García</h3>
+                <p class="text-xs md:text-sm text-neutral-600 dark:text-neutral-300">Desarrolladora Frontend</p>
+              </div>
+            </div>
+            <div class="flex mb-3 md:mb-4" aria-label="Calificación: 5 de 5 estrellas" role="img">
+              <span class="text-amber-600 dark:text-amber-400 text-sm md:text-base" aria-hidden="true">★★★★★</span>
+            </div>
+            <blockquote class="text-neutral-700 dark:text-neutral-200 italic leading-relaxed text-sm md:text-base">
+              "Las mentorías me ayudaron a superar mis dudas sobre React y conseguir mi primer trabajo como desarrolladora. El enfoque personalizado fue clave para mi crecimiento."
+            </blockquote>
+          </article>
+
+          <!-- Testimonial Card 2 -->
+          <article class="bg-white dark:bg-neutral-800 p-6 md:p-8 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 hover:shadow-md transition-shadow duration-200 focus-within:ring-2 focus-within:ring-secondary-300 dark:focus-within:ring-secondary-600">
+            <div class="flex items-center mb-4 md:mb-6">
+              <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-secondary-600 to-secondary-800 rounded-full flex items-center justify-center text-white font-bold text-base md:text-lg flex-shrink-0" aria-hidden="true">
+                M
+              </div>
+              <div class="ml-3 md:ml-4 min-w-0">
+                <h3 class="font-semibold text-neutral-900 dark:text-neutral-50 text-sm md:text-base">Miguel Rodríguez</h3>
+                <p class="text-xs md:text-sm text-neutral-600 dark:text-neutral-300">Full Stack Developer</p>
+              </div>
+            </div>
+            <div class="flex mb-3 md:mb-4" aria-label="Calificación: 5 de 5 estrellas" role="img">
+              <span class="text-amber-600 dark:text-amber-400 text-sm md:text-base" aria-hidden="true">★★★★★</span>
+            </div>
+            <blockquote class="text-neutral-700 dark:text-neutral-200 italic leading-relaxed text-sm md:text-base">
+              "Gracias a las sesiones pude estructurar mejor mi aprendizaje y enfocarme en las tecnologías que realmente necesitaba para mi carrera profesional."
+            </blockquote>
+          </article>
+
+          <!-- Testimonial Card 3 -->
+          <article class="bg-white dark:bg-neutral-800 p-6 md:p-8 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 hover:shadow-md transition-shadow duration-200 focus-within:ring-2 focus-within:ring-accent-300 dark:focus-within:ring-accent-600">
+            <div class="flex items-center mb-4 md:mb-6">
+              <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-accent-600 to-accent-800 rounded-full flex items-center justify-center text-white font-bold text-base md:text-lg flex-shrink-0" aria-hidden="true">
+                L
+              </div>
+              <div class="ml-3 md:ml-4 min-w-0">
+                <h3 class="font-semibold text-neutral-900 dark:text-neutral-50 text-sm md:text-base">Laura Martín</h3>
+                <p class="text-xs md:text-sm text-neutral-600 dark:text-neutral-300">Backend Developer</p>
+              </div>
+            </div>
+            <div class="flex mb-3 md:mb-4" aria-label="Calificación: 5 de 5 estrellas" role="img">
+              <span class="text-amber-600 dark:text-amber-400 text-sm md:text-base" aria-hidden="true">★★★★★</span>
+            </div>
+            <blockquote class="text-neutral-700 dark:text-neutral-200 italic leading-relaxed text-sm md:text-base">
+              "El acompañamiento personalizado me dio la confianza que necesitaba para hacer la transición de marketing a desarrollo. Ahora trabajo como backend developer."
+            </blockquote>
+          </article>
+        </div>
+
+        <!-- Placeholder notice for future updates -->
+        <div class="flex justify-center">
+          <div class="bg-neutral-50 dark:bg-neutral-800/50 border-2 border-dashed border-neutral-300 dark:border-neutral-600 rounded-lg p-6 md:p-8 text-center max-w-lg">
+            <div class="text-neutral-600 dark:text-neutral-300">
+              <span class="text-xl md:text-2xl mb-3 md:mb-4 block" aria-hidden="true">💬</span>
+              <p class="text-base md:text-lg font-medium mb-2 text-neutral-800 dark:text-neutral-100">¿Has tenido una experiencia positiva con nuestras mentorías?</p>
+              <p class="text-sm md:text-base mb-4">
+                Nos encantaría conocer tu historia y compartirla con futuros estudiantes.
+              </p>
+              <a 
+                href="/contacto" 
+                class="inline-block text-primary-700 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 font-medium text-sm md:text-base underline focus:ring-2 focus:ring-primary-300 dark:focus:ring-primary-600 rounded px-1 py-1"
+                aria-label="Comparte tu testimonio con nosotros"
+              >
+                Comparte tu testimonio →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="planes" class="my-20">
+    <div class="container">
+      <h2 class="text-3xl font-bold mb-8 text-center">Planes de mentoría</h2>
+      <PricingPlans />
+    </div>
+  </section>
+  <section class="my-24 border-t border-[var(--border-color-subtle)] pt-16">
+    <div class="container">
+      <h2 class="text-3xl font-bold mb-8 text-center">Revisión de Pull Requests</h2>
+      <PRReviewCard />
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="my-12 md:my-16 bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-primary-900/20 dark:to-secondary-900/20 py-12 md:py-16 lg:py-20" aria-labelledby="final-cta">
+    <div class="container px-4 md:px-6 lg:px-8 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h2 id="final-cta" class="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-neutral-900 dark:text-neutral-50">
+          No aprendas solo
+        </h2>
+        
+        <p class="text-base md:text-xl lg:text-2xl text-neutral-700 dark:text-neutral-200 mb-6 md:mb-8 leading-relaxed">
+          El camino del desarrollo puede ser desafiante, pero no tienes que recorrerlo en soledad. 
+          Con la guía adecuada, puedes acelerar tu aprendizaje, evitar obstáculos comunes y 
+          construir la carrera que siempre has soñado.
+        </p>
+        
+        <p class="text-sm md:text-lg text-neutral-600 dark:text-neutral-300 mb-8 md:mb-12">
+          Miles de desarrolladores han transformado sus carreras con mentorías personalizadas. 
+          Tu momento es ahora.
+        </p>
+
+        <div class="flex flex-col items-center space-y-3 md:space-y-4">
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="#planes" 
+              class="inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold text-white bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800"
+              aria-label="Ver planes y precios de mentorías"
+              role="button"
+            >
+              <span class="text-xl md:text-2xl mr-2 md:mr-3" aria-hidden="true">💎</span>
+              Ver planes y precios
+            </a>
+            
+            <a 
+              href="/contacto" 
+              class="inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold border-2 border-primary-600 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-lg transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800"
+              aria-label="Contactar para más información"
+              role="button"
+            >
+              <span class="text-xl md:text-2xl mr-2 md:mr-3" aria-hidden="true">💬</span>
+              Contactar ahora
+            </a>
+          </div>
+          
+          <p class="text-xs md:text-sm text-neutral-500 dark:text-neutral-400 text-center">
+            Primera sesión gratuita • Sin compromiso • Resultados garantizados
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- Accessibility styles -->
+  <style>
+    /* Screen reader only class for accessibility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .focus\:not-sr-only:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      padding: 0.5rem 1rem;
+      margin: 0;
+      overflow: visible;
+      clip: auto;
+      white-space: normal;
+    }
+
+    /* Ensure proper focus indicators for all interactive elements */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+
+    /* Enhanced button contrast */
+    .button {
+      min-height: 44px; /* WCAG minimum touch target size */
+      min-width: 44px;
+      font-weight: 600; /* Improved readability */
+    }
+
+    /* Improved focus indicators */
+    .focus-within\:ring-2:focus-within {
+      box-shadow: 0 0 0 2px var(--tw-ring-color);
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+
+    /* Ensure proper line height for readability */
+    p {
+      line-height: 1.6;
+    }
+
+    /* Improve button hover states for better UX */
+    .button:hover {
+      transform: translateY(-1px);
+      transition: transform 0.2s ease;
+    }
+
+    /* Ensure proper spacing for mobile */
+    @media (max-width: 768px) {
+      section {
+        scroll-margin-top: 2rem;
+      }
+    }
+  </style>
+</DefaultLayout> 

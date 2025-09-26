@@ -1,0 +1,91 @@
+---
+import Navigation from '../components/Navigation.astro'
+import { DarkMode, SkipLink } from 'accessible-astro-components'
+import { Icon } from 'astro-icon/components'
+
+/**
+ * Header Component
+ *
+ * @description A component that displays the header of the website
+ */
+---
+
+<header>
+  <SkipLink />
+  <Navigation>
+    <li class="menu-item">
+      <a href="/">Inicio</a>
+    </li>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">
+        Formación
+        <Icon name="lucide:chevron-down" size="32" />
+      </button>
+      <ul class="dropdown-menu">
+        <!-- <li class="submenu-item">
+          <a href="/formacion/cursos">Cursos</a>
+        </li> -->
+        <li class="submenu-item">
+          <a href="/formacion/mentorias">Mentorías</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">
+        Proyectos
+        <Icon name="lucide:chevron-down" size="32" />
+      </button>
+      <ul class="dropdown-menu">
+        <li class="submenu-item">
+          <a href="/proyectos/consultoria">Consultoría</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/proyectos/substack">Substack</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/proyectos/apps">Apps</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/proyectos/open-source">Open Source</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">
+        Publicaciones
+        <Icon name="lucide:chevron-down" size="32" />
+      </button>
+      <ul class="dropdown-menu">
+        <li class="submenu-item">
+          <a href="/blog/">Blog</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://codingpit.substack.com/" target="_blank" rel="noopener">Substack</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item">
+      <a href="/contacto">Contacto</a>
+    </li>
+    <li class="menu-item type-icon animate-rotate">
+      <DarkMode>
+        <Icon name="lucide:moon" slot="light" />
+        <Icon name="lucide:sun" slot="dark" />
+      </DarkMode>
+    </li>
+  </Navigation>
+</header>
+
+<style lang="scss" is:global>
+  header {
+    .type-icon {
+      display: block;
+      margin-inline: -7px;
+
+      svg {
+        inline-size: 30px;
+        block-size: 30px;
+      }
+    }
+  }
+</style>

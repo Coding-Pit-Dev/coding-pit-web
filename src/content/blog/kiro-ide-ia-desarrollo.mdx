@@ -1,0 +1,76 @@
+---
+title: "Kiro: ¿El IDE con IA que cambiará las reglas del juego para los desarrolladores?"
+author: "Juanje Cilla"
+date: "2025-01-27"
+description: "Análisis en profundidad de Kiro, el nuevo IDE con IA de AWS que propone un enfoque revolucionario: el desarrollo guiado por especificaciones."
+image: "/content/blog/images/kiro-hero-main.png"
+authorImage: "/images/juanje_cropped.jpg"
+---
+
+En el vertiginoso mundo del desarrollo de software, las herramientas con inteligencia artificial han pasado de ser una novedad a una necesidad. Hemos visto asistentes como GitHub Copilot e IDEs nativos de IA como Cursor, pero ahora llega un nuevo contendiente que promete un cambio de paradigma: **Kiro**.
+
+Presentado por un equipo dentro de **AWS**, Kiro no es solo otro editor de código con autocompletado. Se define a sí mismo como un **"entorno de desarrollo agéntico"** que busca reinventar cómo colaboramos con los agentes de IA en todo el ciclo de vida del software. Pero, ¿qué significa esto en la práctica y qué lo hace realmente diferente? Vamos a profundizar.
+
+---
+
+## El gran diferenciador: Desarrollo Guiado por Especificaciones (Spec-Driven Development)
+
+![Kiro Spec-Driven Development](/content/blog/images/kiro-spec-driven.png)
+
+La mayoría de nosotros estamos acostumbrados al "vibe coding": interactuar con un chat, pedir fragmentos de código y refinar sobre la marcha. Kiro propone un enfoque radicalmente distinto y más estructurado, al que llama **Spec-Driven Development**. En lugar de saltar directamente al código, Kiro estructura el trabajo en tres fases claras, transformando un simple _prompt_ en un plan de ingeniería robusto.
+
+### 1. Requisitos (Requirements)
+Todo comienza con tu idea. Le pides a Kiro lo que quieres construir, y en lugar de código, genera un documento de requisitos formales. Este archivo, en formato Markdown, incluye **historias de usuario y criterios de aceptación**, detallando exactamente lo que el sistema debe hacer. Esto obliga a pensar en el "porqué" antes del "cómo", ahorrando días de trabajo en planificación.
+
+### 2. Diseño (Design)
+Una vez que los requisitos están claros, Kiro pasa a la fase de diseño. Analiza tu base de código existente para entender el contexto y genera un documento de diseño técnico. Este puede incluir **diagramas de arquitectura, diagramas de flujo de datos e incluso interfaces de TypeScript**. Es como tener un arquitecto de software que documenta la solución antes de escribir una sola línea de código.
+
+### 3. Tareas (Tasks)
+Con el diseño aprobado, Kiro desglosa la implementación en una lista detallada de tareas de codificación discretas y rastreables. Como desarrollador, tu rol evoluciona: en lugar de escribir código repetitivo, supervisas el plan y decides qué tareas ejecutar y en qué orden.
+
+Este flujo de trabajo no solo aporta estructura, sino que también genera una **documentación valiosísima** que se mantiene actualizada, algo que a menudo se deja para el final (o nunca se hace) en el desarrollo tradicional.
+
+---
+
+## Más allá de las especificaciones: Un verdadero colaborador agéntico
+
+Kiro se posiciona como el patrón más avanzado en la integración de IA: la **IA como agente autónomo**. Esto se manifiesta en varias características clave:
+
+- **Flujo de trabajo agéntico:** Kiro no solo sugiere código, lo implementa. Puede ejecutar tareas de varios pasos, como escribir código, **crear y ejecutar pruebas unitarias, leer los errores de la consola si fallan, y autocorregirse** para solucionarlos, todo con mínima supervisión humana.
+
+- **Agent Hooks:** ¿Cansado de tareas repetitivas? Los _hooks_ te permiten delegar trabajo a agentes de IA que se ejecutan en segundo plano. Puedes configurar un _hook_ para que, cada vez que guardes un archivo, se **actualice la documentación, se generen pruebas unitarias o se optimice el rendimiento del código** automáticamente.
+
+- **Contexto y "Steering":** Kiro promete un entendimiento profundo de tu proyecto. Mediante archivos de "dirección" (_steering files_), puedes enseñarle al agente tus **estándares de codificación, las herramientas preferidas y el contexto específico del proyecto** para guiar su comportamiento y obtener resultados más precisos.
+
+- **Familiar pero nuevo:** A pesar de su enfoque innovador, la interfaz resultará familiar para muchos, ya que es un _fork_ de VS Code (Code OSS). Permite una **migración con un solo clic de tus extensiones y configuraciones de VS Code**, combinando lo mejor de ambos mundos.
+
+---
+
+## No todo es perfecto: Los problemas actuales de Kiro
+
+Kiro se encuentra actualmente en **_public preview_**, lo que significa que es un producto en evolución y no está exento de problemas. Una revisión de los _issues_ abiertos en su repositorio público de GitHub nos da una idea de los desafíos que los usuarios están enfrentando:
+
+### Problemas de Rendimiento
+Varios usuarios reportan problemas de rendimiento, como un **alto uso de la CPU en Mac** y una lentitud notable en la generación de código, descrita como "a paso de caracol".
+
+### Experiencia de Usuario (UX/UI)
+Se han reportado fallos en la interfaz, como que la **terminal no funcione correctamente** o que la lista de tareas se superponga con la ventana de chat. También hay solicitudes para mejorar la flexibilidad de la interfaz, como poder acoplar la terminal junto al panel de chat.
+
+### Funcionalidad del Agente
+Algunos usuarios encuentran que **ajustar y corregir los errores del agente es un desafío**. Faltan funciones que ya son estándar en otras herramientas, como la capacidad de deshacer cambios o restaurar puntos de control, similar a GitHub Copilot.
+
+### Bloqueo con comandos persistentes
+Un problema común es cuando el agente ejecuta un comando que no termina por sí solo, como `npm run dev` para iniciar un servidor de desarrollo. En estos casos, el agente puede quedarse **"estancado"**, esperando a que el proceso finalice, y no continuará con las siguientes tareas hasta que el usuario cancele manualmente el comando.
+
+### Errores Generales
+También hay informes de problemas con el inicio y cierre de sesión, consumo inesperado de _tokens_ y archivos de instalación dañados para Apple Silicon.
+
+---
+
+## Conclusión: ¿Vale la pena probarlo?
+
+Kiro representa una visión ambiciosa y estructurada del futuro del desarrollo de software con IA. Su enfoque en la **planificación, el diseño y la documentación antes de la codificación** es un soplo de aire fresco que podría mejorar drásticamente la calidad y mantenibilidad del software que construimos.
+
+Aunque todavía tiene asperezas que limar, como demuestran los problemas reportados en GitHub, la propuesta de valor es innegable. Le da la vuelta a lo que conocemos con herramientas como GitHub Copilot o Cursor, ofreciendo una capa de **gestión de proyectos y arquitectura** que estaba ausente.
+
+Si eres un desarrollador que busca no solo escribir código más rápido, sino también **mejorar tus prácticas de ingeniería y reducir la carga de la documentación**, **definitivamente vale la pena descargar Kiro y experimentar con él**. Podría ser un vistazo al futuro de nuestra profesión.

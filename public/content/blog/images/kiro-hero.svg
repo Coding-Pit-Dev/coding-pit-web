@@ -1,0 +1,58 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+  
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Main title -->
+  <text x="600" y="200" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">
+    KIRO IDE
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="250" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)" text-anchor="middle">
+    El IDE con IA que cambia las reglas del juego
+  </text>
+  
+  <!-- Code window mockup -->
+  <rect x="300" y="300" width="600" height="280" rx="8" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  
+  <!-- Window header -->
+  <rect x="300" y="300" width="600" height="40" rx="8" fill="rgba(0,0,0,0.5)"/>
+  <circle cx="320" cy="320" r="6" fill="#ff5f57"/>
+  <circle cx="340" cy="320" r="6" fill="#ffbd2e"/>
+  <circle cx="360" cy="320" r="6" fill="#28ca42"/>
+  
+  <!-- Code lines -->
+  <rect x="320" y="360" width="200" height="8" rx="4" fill="rgba(255,255,255,0.6)"/>
+  <rect x="320" y="380" width="150" height="8" rx="4" fill="rgba(255,255,255,0.4)"/>
+  <rect x="320" y="400" width="180" height="8" rx="4" fill="rgba(255,255,255,0.5)"/>
+  <rect x="320" y="420" width="120" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+  
+  <!-- AI assistant indicator -->
+  <circle cx="800" cy="450" r="30" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+  <text x="800" y="458" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle">AI</text>
+  
+  <!-- Spec-driven development indicators -->
+  <rect x="320" y="480" width="80" height="30" rx="15" fill="rgba(102, 126, 234, 0.8)"/>
+  <text x="360" y="500" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">SPEC</text>
+  
+  <rect x="420" y="480" width="80" height="30" rx="15" fill="rgba(118, 75, 162, 0.8)"/>
+  <text x="460" y="500" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">DESIGN</text>
+  
+  <rect x="520" y="480" width="80" height="30" rx="15" fill="rgba(102, 126, 234, 0.6)"/>
+  <text x="560" y="500" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">TASKS</text>
+</svg>

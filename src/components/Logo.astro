@@ -18,13 +18,45 @@ interface Props {
 const { loading = 'eager' }: Props = Astro.props
 ---
 
-<a href="/" class="flex items-center gap-2 !no-underline">
-  <Image src={logo} alt="Accessible Astro Logo" width="47" height="37" loading={loading} />
-  <span class="font-bold">Coding Pit</span>
-</a>
+<div class="logo-container">
+  <a href="/" class="flex items-center gap-2 !no-underline">
+    <div class="logo-image-wrapper">
+      <Image src={logo} alt="Accessible Astro Logo" width="47" height="37" loading={loading} />
+    </div>
+    <span class="logo-text">Coding Pit</span>
+  </a>
+</div>
 
 <style lang="scss">
+  .logo-container {
+    display: inline-block;
+  }
+
+  .logo-image-wrapper {
+    background-color: var(--color-neutral-200);
+    border: 1px solid var(--color-neutral-300);
+    border-radius: var(--radius-s);
+    padding: var(--space-2xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--animation-speed-fast) var(--cubic-bezier);
+    
+    &:hover {
+      background-color: var(--color-neutral-100);
+    }
+  }
+
   a {
     color: var(--foreground-color);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
+  }
+
+  .logo-text {
+    font-weight: bold;
+    font-size: 1.75rem; /* 20px */
+    line-height: 1.2;
   }
 </style>

@@ -13,7 +13,7 @@ This is a personal website and blog for Juanje Cilla, a software developer and m
 - Bilingual content (Spanish primary, some English)
 - Blog with technical articles about development tools (Kiro IDE, Replit, etc.)
 - Mentorship program pages and contact forms
-- Portfolio/project showcase
+- Portfolio/project showcase (temporarily disabled)
 - Newsletter subscription functionality (temporarily disabled)
 
 ## Target Audience

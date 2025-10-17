@@ -20,8 +20,8 @@ Key pages:
 - `index.astro` - Homepage with hero and mentorship info
 - `blog/` - Blog listing and individual post pages
 - `formacion/` - Training and mentorship service pages
-- `portfolio/` - Project showcase with pagination
-- `proyectos/` - Project categories and listings
+- `portfolio/` - Project showcase with pagination (temporarily disabled)
+- `proyectos/` - Project categories and listings (temporarily disabled)
 
 ### Components (`src/components/`)
 Reusable Astro components following accessibility standards:

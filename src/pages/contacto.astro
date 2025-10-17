@@ -7,9 +7,7 @@ import PageHeader from '@components/PageHeader.astro'
   <PageHeader title="Contacto" subtitle="¿Tienes alguna consulta o propuesta? Rellena el formulario y te responderé lo antes posible." bgType="bordered" />
   <section class="my-12">
     <div class="container max-w-xl mx-auto">
-      <form action="https://formsubmit.co/juanje.cilla@gmail.com" method="POST" class="flex flex-col gap-6 bg-white dark:bg-neutral-900 p-8 rounded-xl shadow border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-neutral-100">
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="/contacto?ok=1" />
+      <form action="https://formsubmit.co/codingpit@gmail.com" method="POST" class="flex flex-col gap-6 bg-white dark:bg-neutral-900 p-8 rounded-xl shadow border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-neutral-100">
         <label class="flex flex-col gap-2 text-neutral-900 dark:text-neutral-100">
           <span>Correo electrónico</span>
           <input type="email" name="email" required class="border border-neutral-300 dark:border-neutral-700 rounded p-2 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-500 dark:placeholder:text-neutral-400" />
@@ -24,8 +22,10 @@ import PageHeader from '@components/PageHeader.astro'
         </label>
         <button type="submit" class="bg-green-600 text-white rounded p-3 font-bold hover:bg-green-700 transition">Enviar</button>
         <div class="mt-2 text-center text-sm text-neutral-600 dark:text-neutral-400">
-          Al enviar, serás redirigido de vuelta a esta página. Si tienes problemas, escríbeme a <a class="underline" href="mailto:juanje.cilla@gmail.com">juanje.cilla@gmail.com</a>.
+          Al enviar, serás redirigido a una página de confirmación. Si tienes problemas, escríbeme a <a class="underline" href="mailto:codingpit@gmail.com">codingpit@gmail.com</a>.
         </div>
+        <input type="hidden" name="_next" value="https://www.codingpit.com/gracias" />
+        <input type="hidden" name="_captcha" value="false" />
       </form>
     </div>
   </section>

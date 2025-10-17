@@ -473,8 +473,15 @@ const description = 'Coding Pit: tu espacio para crecer como programador. Mentor
               <span class="text-amber-600 dark:text-amber-400 text-sm md:text-base" aria-hidden="true">★★★★★</span>
             </div>
             <blockquote class="text-neutral-700 dark:text-neutral-200 italic leading-relaxed text-sm md:text-base">
-              "Conocí a Juanje cuando fue mi profesor en una formación de programación, donde impartía Android. Desde el primer día destacó por ser un profesor excepcional: explicaba con claridad, se preocupaba por cada alumno y tenía una paciencia infinita. Más allá de las clases, lo que marcó la diferencia fue que siguió en contacto con nosotros y nos animó a lanzarnos a un proyecto conjunto para ganar experiencia real y facilitar nuestra entrada en el mundo laboral. Lo hizo de manera totalmente voluntaria, convirtiéndose en nuestro mentor y acompañándonos en todo lo que necesitábamos. Lo que más me impresionó fue su forma de tratar a las personas: siempre dispuesto a ayudar, con una paciencia y una dedicación que no se encuentran fácilmente. Nunca dejaba que nadie se rindiera ni quedara atrás, se interesaba genuinamente por nuestro progreso y, incluso una vez trabajando, sigue preocupándose por cómo nos va y si necesitamos apoyo. Gracias a él no solo aprendí programación, sino también el valor de tener un verdadero mentor que cree en ti y te impulsa a seguir adelante."
+              "Conocí a Juanje cuando fue mi profesor en una formación de programación, donde impartía Android. Desde el primer día destacó por ser un profesor excepcional: explicaba con claridad, se preocupaba por cada alumno y tenía una paciencia infinita..."
             </blockquote>
+            <button 
+              id="alberto-ver-mas-btn"
+              class="mt-3 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 text-sm font-medium underline focus:outline-none focus:ring-2 focus:ring-primary-300 dark:focus:ring-primary-600 rounded"
+              aria-label="Ver testimonial completo de Alberto Alegre"
+            >
+              Ver más
+            </button>
           </article>
 
           <!-- Testimonial Card 3 -->
@@ -649,4 +656,107 @@ const description = 'Coding Pit: tu espacio para crecer como programador. Mentor
       }
     }
   </style>
+
+  <!-- Modal for Alberto's full testimonial -->
+  <div id="alberto-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+    <div id="alberto-modal-content" class="bg-white dark:bg-neutral-800 rounded-xl shadow-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+      <div class="p-6 md:p-8">
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gradient-to-br from-secondary-600 to-secondary-800 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+              A
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-50">Alberto Alegre</h3>
+              <p class="text-sm text-neutral-600 dark:text-neutral-300">Desarrollador iOS</p>
+            </div>
+          </div>
+          <button 
+            id="alberto-close-btn"
+            class="text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 focus:outline-none focus:ring-2 focus:ring-primary-300 dark:focus:ring-primary-600 rounded p-1"
+            aria-label="Cerrar modal"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Stars -->
+        <div class="flex mb-4" aria-label="Calificación: 5 de 5 estrellas" role="img">
+          <span class="text-amber-600 dark:text-amber-400 text-lg">★★★★★</span>
+        </div>
+        
+        <!-- Full Testimonial -->
+        <blockquote class="text-neutral-700 dark:text-neutral-200 italic leading-relaxed text-base">
+          "Conocí a Juanje cuando fue mi profesor en una formación de programación, donde impartía Android. Desde el primer día destacó por ser un profesor excepcional: explicaba con claridad, se preocupaba por cada alumno y tenía una paciencia infinita. Más allá de las clases, lo que marcó la diferencia fue que siguió en contacto con nosotros y nos animó a lanzarnos a un proyecto conjunto para ganar experiencia real y facilitar nuestra entrada en el mundo laboral. Lo hizo de manera totalmente voluntaria, convirtiéndose en nuestro mentor y acompañándonos en todo lo que necesitábamos. Lo que más me impresionó fue su forma de tratar a las personas: siempre dispuesto a ayudar, con una paciencia y una dedicación que no se encuentran fácilmente. Nunca dejaba que nadie se rindiera ni quedara atrás, se interesaba genuinamente por nuestro progreso y, incluso una vez trabajando, sigue preocupándose por cómo nos va y si necesitamos apoyo. Gracias a él no solo aprendí programación, sino también el valor de tener un verdadero mentor que cree en ti y te impulsa a seguir adelante."
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('alberto-modal');
+      const openBtn = document.getElementById('alberto-ver-mas-btn');
+      const closeBtn = document.getElementById('alberto-close-btn');
+      const modalContent = document.getElementById('alberto-modal-content');
+
+      function openModal() {
+        if (modal) {
+          modal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+          // Focus the close button for accessibility
+          if (closeBtn) {
+            closeBtn.focus();
+          }
+        }
+      }
+
+      function closeModal() {
+        if (modal) {
+          modal.classList.add('hidden');
+          document.body.style.overflow = '';
+          // Return focus to the open button
+          if (openBtn) {
+            openBtn.focus();
+          }
+        }
+      }
+
+      // Open modal when "Ver más" button is clicked
+      if (openBtn) {
+        openBtn.addEventListener('click', openModal);
+      }
+
+      // Close modal when close button is clicked
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+      }
+
+      // Close modal when clicking outside the modal content
+      if (modal) {
+        modal.addEventListener('click', function(event) {
+          if (event.target === modal) {
+            closeModal();
+          }
+        });
+      }
+
+      // Prevent modal from closing when clicking inside the modal content
+      if (modalContent) {
+        modalContent.addEventListener('click', function(event) {
+          event.stopPropagation();
+        });
+      }
+
+      // Close modal with Escape key
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+          closeModal();
+        }
+      });
+    });
+  </script>
 </DefaultLayout> 

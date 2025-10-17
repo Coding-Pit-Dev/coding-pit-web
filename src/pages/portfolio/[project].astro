@@ -1,5 +1,7 @@
 ---
 // Portfolio functionality is temporarily disabled
-// Redirect to homepage
-return Astro.redirect('/', 302)
+// Return empty paths to disable this route
+export async function getStaticPaths() {
+  return [];
+}
 ---

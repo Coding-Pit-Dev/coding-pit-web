@@ -52,45 +52,20 @@ const plans: Plan[] = [
           )}
           {plan.savings && <span class="plan-savings-badge mb-1">{plan.savings}</span>}
           <div class="plan-card__price">{plan.price}</div>
-          <button
-            id={`pay-btn-${plan.name.toLowerCase()}`}
-            class="plan-pay-btn mt-2"
-            type="button"
-            onclick={`window.handleStripeCheckout && window.handleStripeCheckout('${plan.name.toLowerCase()}')`}
+          <a
+            href="/contacto"
+            class="plan-pay-btn mt-2 inline-block text-center no-underline"
+            aria-label={`Contactar para el plan ${plan.name}`}
           >
-            Comprar
-          </button>
+            Contacto
+          </a>
         </div>
       </div>
     ))}
   </div>
 </div>
 
-<script is:inline>
-  window.handleStripeCheckout = async function(plan) {
-    const btn = document.getElementById(`pay-btn-${plan}`);
-    if (!btn) return;
-    btn.disabled = true;
-    btn.textContent = 'Redirigiendo...';
-    try {
-      const res = await fetch('/api/stripe-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan })
-      });
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        btn.textContent = 'Error';
-        btn.disabled = false;
-      }
-    } catch (e) {
-      btn.textContent = 'Error';
-      btn.disabled = false;
-    }
-  }
-</script>
+
 
 <style lang="scss">
 .pricing-plans-wrapper {
@@ -199,9 +174,11 @@ const plans: Plan[] = [
   margin-top: 0.5em;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+  display: inline-block;
 }
-.plan-pay-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+.plan-pay-btn:hover {
+  background: var(--link-color-hover, var(--link-color));
+  opacity: 0.9;
 }
 </style> 
